@@ -76,10 +76,10 @@ class Game
     # если ползователь ввёл букву "и" - есть ли в слове буква "й"
     # если ползователь ввёл букву "й" - есть ли в слове буква "й"
     if @letters.include?(bukva) ||
-     (bukva == "е" && letters.include?("ё")) ||
-     (bukva == "ё" && letters.include?("е")) ||
-     (bukva == "и" && letters.include?("й")) ||
-     (bukva == "й" && letters.include?("и"))
+      (bukva == "е" && letters.include?("ё")) ||
+      (bukva == "ё" && letters.include?("е")) ||
+      (bukva == "и" && letters.include?("й")) ||
+      (bukva == "й" && letters.include?("и"))
 
       # Если в слове есть буква запишем её в число "правильных" буква
       @good_letters << bukva
@@ -112,19 +112,19 @@ class Game
       @bad_letters << bukva
 
       if bukva == "е"
-      bad_letters << "ё"
+        bad_letters << "ё"
       end
 
       if bukva == "ё"
-      bad_letters << "е"
+        bad_letters << "е"
       end
 
       if bukva == "и"
-      bad_letters << "й"
+        bad_letters << "й"
       end
 
       if bukva == "й"
-      bad_letters << "и"
+        bad_letters << "и"
       end
 
       @errors += 1
