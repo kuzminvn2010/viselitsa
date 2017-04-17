@@ -32,15 +32,15 @@ describe Game do
 
     it 'user input all bad leters' do
       game = Game.new(UnicodeUtils.downcase("Танк"))
-      game.next_step(UnicodeUtils.downcase("к"))
+      game.next_step(UnicodeUtils.downcase("м"))
       game.next_step(UnicodeUtils.downcase("с"))
-      game.next_step(UnicodeUtils.downcase("а"))
+      game.next_step(UnicodeUtils.downcase("ж"))
       game.next_step(UnicodeUtils.downcase("ф"))
       puts game.letters.to_s
       puts game.good_letters.to_s
-      game.bad_letters.should_not include(game.letters)
+      game.good_letters.should_not include(game.letters)
       expect(game.status).to eq 0
-      expect(game.errors).to eq 2
+      expect(game.errors).to eq 4
     end
   end
 end
