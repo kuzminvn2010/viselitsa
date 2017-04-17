@@ -8,25 +8,16 @@
 # нижнему регистру с помощью метода downcase
 require "unicode_utils"
 
-# Этот код необходим только при использовании русских букв на Windows
-if Gem.win_platform?
-  Encoding.default_external = Encoding.find(Encoding.locale_charmap)
-  Encoding.default_internal = __ENCODING__
-
-  [STDIN, STDOUT].each do |io|
-    io.set_encoding(Encoding.default_external, Encoding.default_internal)
-  end
-end
-
 # Подключаем классы Game, ResultPrinter и WordReader
-require_relative "game"
-require_relative "result_printer"
-require_relative "word_reader"
+require_relative "lib/game"
+require_relative "lib/result_printer"
+require_relative "lib/word_reader"
 
 puts "Игра виселица. Версия 3. (c) goodprogrammer.ru\n\n"
 sleep 1
 
-printer = ResultPrinter.new
+current_path = File.dirname(__FILE__)
+printer = ResultPrinter.new(current_path)
 
 # Создаем экземпляр класса Word который мы будет использовать для
 # вывода информации на экран.
